@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.urls]
-homepage = ""
+homepage = "https://github.com/acnaweb/python-template"
 
 [project.optional-dependencies]
 dev = [
