@@ -5,12 +5,15 @@ JOB_ARGS := $(shell python -c 'import json; f = open("metadata.json"); data = js
 install:
 	python -m venv venv; \
 	. venv/bin/activate; \
-	pip install --upgrade pip setuptools wheel; \
+	pip install --upgrade pip setuptools wheel pip-tools; \
 	pip install pre-commit; \
 	pip install -e .[dev,quality]; \
 	pre-commit install; \
 	git config --bool flake8.strict true; \
-	
+	pip-compile pyproject.toml -o requirements.txt; \
+	pip-compile pyproject.toml --extra dev -o requirements-dev.txt; \
+	pip-compile pyproject.toml --extra quality -o requirements-quality.txt; \
+
 run:
 	@echo "Executando com os seguintes argumentos: $(JOB_ARGS)"
 	@python src/app.py $(JOB_ARGS)
