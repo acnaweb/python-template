@@ -2,7 +2,7 @@ from loguru import logger
 
 
 def main():
-    logger.info("Running job")
+    logger.info("Running Job")
     logger.info("Job ok")
 
 
