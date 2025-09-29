@@ -2,7 +2,8 @@ from loguru import logger
 
 
 def main():
-    logger.info("running job")
+    logger.info("Running job")
+    logger.info("Job ok")
 
 
 if __name__ == "__main__":
